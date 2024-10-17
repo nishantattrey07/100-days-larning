@@ -1,4 +1,4 @@
-const { GetObjectCommand, S3Client} = require( "@aws-sdk/client-s3");
+const { GetObjectCommand, S3Client, PutObjectCommand} = require( "@aws-sdk/client-s3");
 const { getSignedUrl } = require("@aws-sdk/s3-request-presigner");
 const { accessKeyId,secretAccessKey }= require( "../vars");
 
@@ -12,27 +12,40 @@ const s3Client = new S3Client({
 });
 
 async function getObjectURL(key) {
-    const command = new GetObjectCommand({
-        Bucket: "bucket.nishantattrey.dev",
-        Key: key
-    });
-
-    const response = await s3Client.send(command);
-    return response.Body;
-
-
-
-    // const command1 = new GetObjectCommand({
+    // const command = new GetObjectCommand({
     //     Bucket: "bucket.nishantattrey.dev",
-    //     Key:key
-    // })
-    // const response1 = await getSignedUrl(s3Client, command1);
-    // return response1;
+    //     Key: key
+    // });
+
+    // const response = await s3Client.send(command);
+    // return response.Body;
+
+
+
+    const command1 = new GetObjectCommand({
+        Bucket: "prcbucket.nishantattrey.dev",
+        Key:key
+    })
+    const response1 = await getSignedUrl(s3Client, command1);
+    return response1;
 }
 
 async function init() { 
-    const res = await getObjectURL("jet.jpeg")
-    console.log(res);
+    const getRes = await getObjectURL("uploads/user/image-1729188771159.jpeg")
+    // const putRes = await putObject(`image-${Date.now()}.jpeg`,"image/jpeg")
+    console.log(getRes);
 }
 
+
+async function putObject(filename,contentType) { 
+
+    const command = new PutObjectCommand({
+        Bucket: "prcbucket.nishantattrey.dev",
+        Key: `uploads/user/${filename}`,
+        ContentType: contentType
+    });
+
+    const response = await getSignedUrl(s3Client, command, { expiresIn: 60 });
+    return response;
+}
 init();
