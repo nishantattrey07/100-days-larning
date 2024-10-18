@@ -23,7 +23,7 @@ async function getObjectURL(key) {
 
 
     const command1 = new GetObjectCommand({
-        Bucket: "prcbucket.nishantattrey.dev",
+        Bucket: "bucket.nishantattrey.dev",
         Key:key
     })
     const response1 = await getSignedUrl(s3Client, command1);
@@ -31,16 +31,16 @@ async function getObjectURL(key) {
 }
 
 async function init() { 
-    const getRes = await getObjectURL("uploads/user/image-1729188771159.jpeg")
-    // const putRes = await putObject(`image-${Date.now()}.jpeg`,"image/jpeg")
-    console.log(getRes);
+    // const getRes = await getObjectURL("uploads/user/image-1729188771159.jpeg")
+    const putRes = await putObject(`image-${Date.now()}.jpeg`,"image/jpeg")
+    console.log(putRes);
 }
 
 
 async function putObject(filename,contentType) { 
 
     const command = new PutObjectCommand({
-        Bucket: "prcbucket.nishantattrey.dev",
+        Bucket: "bucket.nishantattrey.dev",
         Key: `uploads/user/${filename}`,
         ContentType: contentType
     });
