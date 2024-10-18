@@ -49,3 +49,4 @@ async function putObject(filename,contentType) {
     return response;
 }
 init();
+
