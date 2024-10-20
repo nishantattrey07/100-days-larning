@@ -3,6 +3,7 @@ import { RevenueCard } from './components/RevenueCard';
 import './App.css'
 import { Payout } from './components/Payout';
 import { AppBar } from './components/AppBar';
+import { OverViewBar } from './components/OverViewBar';
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
         <AppBar title={"Payouts"}/>
       </header>
       <section className="flex flex-col gap-6">
+        <OverViewBar title={"OverView"}/>
         <div className=" flex gap-5 flex-wrap">
           <Payout
             title={"Next Payout"}
