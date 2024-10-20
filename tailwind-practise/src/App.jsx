@@ -10,7 +10,7 @@ function App() {
   return (
     <div>
       <header>
-        <AppBar />
+        <AppBar title={"Payouts"}/>
       </header>
       <section className="flex flex-col gap-6">
         <div className=" flex gap-5 flex-wrap">
@@ -26,7 +26,7 @@ function App() {
             orderCount={13}
           />
           <RevenueCard title="Amount Processed" revenue="1,92,312.20" />
-          {/* Add more RevenueCard components as needed */}
+          
         </div>
       </section>
     </div>
