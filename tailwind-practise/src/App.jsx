@@ -7,33 +7,46 @@ import { SideBar } from "./components/SideBar";
 
 function App() {
   return (
-    <div className="flex flex-row justify-between">
-      <div className=" ">
+    <div className="flex">
+      <div className="hidden md:block">
         <SideBar />
       </div>
-      <div>
-        <header>
+      <div className="flex-1">
+        <div>
           <AppBar title={"Payouts"} />
-        </header>
-      </div>
-      <div>
-        <section className="flex flex-col gap-6">
-          <OverViewBar title={"OverView"} />
-          <div className=" flex gap-5 flex-wrap">
-            <Payout
-              title={"Next Payout"}
-              amount={"2312.32"}
-              orders={"23"}
-              paymentTiming={"Today, 4:00PM"}
-            />
-            <RevenueCard
-              title="Amount Pending"
-              revenue="92,312.20"
-              orderCount={13}
-            />
-            <RevenueCard title="Amount Processed" revenue="1,92,312.20" />
+        </div>
+
+        <div>
+          <OverViewBar title={"Overview"} />
+        </div>
+
+        <div>
+          <div className="flex gap-5 flex-wrap sm:p-8 p-4">
+            <div className="flex-grow rounded ">
+              <Payout
+                title={"Next Payout"}
+                amount={"2,312.23"}
+                orders={"23"}
+                paymentTiming={"Today,4:00PM"}
+              />
+            </div>
+
+            <div className="flex-grow rounded ">
+              <RevenueCard
+                title={"Amount Pending"}
+                revenue={"92,312.20"}
+                orderCount={"13"}
+              />
+            </div>
+
+            <div className="flex-grow rounded">
+              <RevenueCard
+                title={"Amount Processed"}
+                revenue={"23,92,312.19"}
+              />
+            </div>
           </div>
-        </section>
+        </div>
       </div>
     </div>
   );

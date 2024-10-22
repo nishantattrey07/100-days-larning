@@ -28,7 +28,7 @@ export function SideBar() {
   ];
 
   return (
-    <div className="w-64 bg-gray-900 text-white h-screen flex flex-col">
+    <div className="w-[225px] bg-gray-900 text-white h-screen flex flex-col">
       <div className="p-4 border-b border-gray-700">
         <div className="flex items-center">
           <img
