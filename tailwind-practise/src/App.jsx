@@ -4,10 +4,12 @@ import { Payout } from "./components/Payout";
 import { AppBar } from "./components/AppBar";
 import { OverViewBar } from "./components/OverViewBar";
 import { SideBar } from "./components/SideBar";
+import { FilterButtons } from "./components/FilterButtons";
+import { TabelList } from "./components/TabelList";
 
 function App() {
   return (
-    <div className="flex">
+    <div className="flex bg-[#fbfafb]">
       <div className="hidden md:block">
         <SideBar />
       </div>
@@ -46,6 +48,13 @@ function App() {
               />
             </div>
           </div>
+        </div>
+
+        <div className="mx-8">
+          <FilterButtons />
+        </div>
+        <div className="my-7 p-7">
+          <TabelList />
         </div>
       </div>
     </div>
