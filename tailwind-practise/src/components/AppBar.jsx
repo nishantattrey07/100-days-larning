@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 export function AppBar({ title }) {
   return (
-    <div className="flex justify-between items-center gap-2 shadow-sm sticky top-0 border-b px-4 py-3 ">
+    <div className="flex justify-between bg-white items-center gap-2 shadow-sm top-0 border-b px-4 py-3 ">
       <div className="flex justify-center items-center gap-3">
         <button className="block sm:hidden">
           <svg

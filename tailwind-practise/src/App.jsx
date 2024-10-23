@@ -10,21 +10,20 @@ import { TabelList } from "./components/TabelList";
 function App() {
   return (
     <div className="flex bg-[#fbfafb]">
-      <div className="hidden md:block">
+      <div className="hidden md:block fixed left-0 top-0 h-screen">
         <SideBar />
       </div>
-      <div className="flex-1">
-        <div>
+      
+      <div className="flex-1 md:ml-56">
+        <div className="sticky top-0">
           <AppBar title={"Payouts"} />
         </div>
-
         <div>
           <OverViewBar title={"Overview"} />
         </div>
-
         <div>
           <div className="flex gap-5 flex-wrap sm:p-8 p-4">
-            <div className="flex-grow rounded ">
+            <div className="flex-grow rounded">
               <Payout
                 title={"Next Payout"}
                 amount={"2,312.23"}
@@ -32,15 +31,13 @@ function App() {
                 paymentTiming={"Today,4:00PM"}
               />
             </div>
-
-            <div className="flex-grow rounded ">
+            <div className="flex-grow rounded">
               <RevenueCard
                 title={"Amount Pending"}
                 revenue={"92,312.20"}
                 orderCount={"13"}
               />
             </div>
-
             <div className="flex-grow rounded">
               <RevenueCard
                 title={"Amount Processed"}
@@ -49,7 +46,6 @@ function App() {
             </div>
           </div>
         </div>
-
         <div className="mx-8">
           <FilterButtons />
         </div>

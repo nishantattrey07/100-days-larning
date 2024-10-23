@@ -9,14 +9,14 @@ export function TabelList() {
       },
       {
         id: Math.floor(Math.random() * 100000 + 1),
-        Status: Math.random() < 0.5 ? "Successful" : "Unsuccessful",
+        Status: Math.random() > 0.5 ? "Successful" : "Unsuccessful",
         transactionId: `TRX-${Math.floor(Math.random() * 1000000)}`,
         refundDate: "Today, 8:45 PM",
         refundAmount: "₹1124.00",
       },
       {
         id: Math.floor(Math.random() * 100000 + 1),
-        Status: Math.random() < 0.5 ? "Successful" : "Unsuccessful",
+        Status: Math.random() > 0.5 ? "Successful" : "Unsuccessful",
         transactionId: `TRX-${Math.floor(Math.random() * 1000000)}`,
         refundDate: "Today, 8:45 PM",
         refundAmount: "₹1123.00",
@@ -133,13 +133,13 @@ export function TabelList() {
                       <div className="flex items-center gap-1">
                         <span
                           className={`w-2 h-2 rounded-full ${
-                            item.status === "Successful"
+                            item.Status === "Successful"
                               ? "bg-green-500"
                               : "bg-gray-400"
                           }`}
                         ></span>
                         <span>
-                          {item.status === "Successful"
+                          {item.Status === "Successful"
                             ? "Successful"
                             : "Processing"}
                         </span>
