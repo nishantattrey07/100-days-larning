@@ -16,5 +16,39 @@ async function insertUser(email: string, password: string, firstname: string, la
     
 }
 
-console.log(insertUser("user2@email.com", "password", "user2", ""));
+async function updateUser(email: string, password: string, firstname: string, lastname: string) { 
+    const res = await prisma.user.update({
+        where: { email },
+        data: {
+            firstname,
+            lastname,
+            password
+        }
+    })
+    console.log(res);
+    
+}
+
+
+async function changeEmail(email: string, newEmail: string) { 
+    const res = await prisma.user.update({
+        where: { email },
+        data: {
+            email:newEmail
+        }
+    })
+    console.log(res);
+}
+
+async function userDetails(email: string) { 
+    const res = await prisma.user.findFirst({
+        where: { email }
+    })
+    console.log(res);
+}
+
+// changeEmail("user1@email.com", "admin@email.com");
+// updateUser("user1@email.com", "adminpass", "Nishant", "Attrey");
+// console.log(insertUser("user2@email.com", "password", "user2", ""));
+userDetails("user2@email.com")
  
